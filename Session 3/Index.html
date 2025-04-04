@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nature Gallery</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        background-image: url("https://source.unsplash.com/random/1920x1080/?nature");
+        height: 100vh;
+        width: 100vw;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all 0.5s ease-in-out;
+        position: relative;
+      }
+      #left,
+      #right {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      #left:hover,
+      #right:hover {
+        background-color: rgba(255, 255, 255, 1);
+        transform: scale(1.1);
+      }
+      #left {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%) rotate(180deg);
+      }
+      #right {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+      }
+      .Mini-Img {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 15px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .my-img {
+        height: 80px;
+        width: 120px;
+        object-fit: cover;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        opacity: 0.7;
+      }
+      .my-img:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      .my-img.active {
+        opacity: 1;
+        border-color: white;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(255,255,255,0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="prev">
+        <img
+          onclick="prev()"
+          src="https://cdn-icons-png.flaticon.com/512/271/271220.png"
+          alt="Previous"
+          height="40px"
+          width="40px"
+          id="left"
+        />
+        <img
+          onclick="next()"
+          src="https://cdn-icons-png.flaticon.com/512/271/271220.png"
+          alt="Next"
+          height="40px"
+          width="40px"
+          id="right"
+        />
+      </div>
+      <div class="Mini-Img">
+        <img
+          src="https://source.unsplash.com/random/300x200/?nature"
+          alt="Nature 1"
+          class="my-img active"
+        />
+        <img
+          src="https://source.unsplash.com/random/300x200/?mountain"
+          alt="Mountain"
+          class="my-img"
+        />
+        <img
+          src="https://source.unsplash.com/random/300x200/?ocean"
+          alt="Ocean"
+          class="my-img"
+        />
+        <img
+          src="https://source.unsplash.com/random/300x200/?forest"
+          alt="Forest"
+          class="my-img"
+        />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
